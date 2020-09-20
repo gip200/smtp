@@ -60,7 +60,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
 
    # Send message data.
    # Fill in start
-   message = raw_input("Enter your message data: \r\n")
+   message = "Enter your message: \r\n"
    # Fill in end
 
    # Message ends with a single period.
