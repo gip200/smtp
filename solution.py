@@ -18,6 +18,18 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
    if recv[:3] != '220':
        print('220 reply not received from server.')
 
+   #Info for username and password
+   username =  "af78e92d0173cf"
+   password = "e098181b76fe58"                              
+   base64_str = ("\x00"+username+"\x00"+password).encode()
+   base64_str = base64.b64encode(base64_str)
+   authMsg = "AUTH PLAIN ".encode()+base64_str+"\r\n".encode()
+   clientSocket.send(authMsg)
+   recv_auth = clientSocket.recv(1024)
+   print(recv_auth.decode())
+   if recv1[:3] != '250':
+            
+   print('250 reply not received from server.')
    # Send HELO command and print server response.
    heloCommand = 'HELO Alice\r\n'
    clientSocket.send(heloCommand.encode())
